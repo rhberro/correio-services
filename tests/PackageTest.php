@@ -21,11 +21,4 @@ class PackageTest extends TestBase
         $package = new Package(new stdClass());
         $this->assertNull($package->ThisPropertyDoesNotExists);
     }
-
-    public function testAnything()
-    {
-        $result = $this->callSimplePriceDeadline();
-
-        var_dump($result->getPackages());
-    }
 }
