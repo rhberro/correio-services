@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Check how much will cost to deliver your package using the Correio's service.",
     "keywords": ["laravel", "correio", "correios", "webservice"],
-    "homepage": "",
+    "homepage": "https://github.com/rhberro/correio-services",
     "license": "MIT",
     "authors": [
         {
