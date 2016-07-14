@@ -20,7 +20,7 @@ class TestBase extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        if (! $this->request) {
+        if (!$this->request) {
             $this->request = new Request();
         }
     }

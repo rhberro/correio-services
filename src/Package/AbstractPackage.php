@@ -35,7 +35,7 @@ abstract class AbstractPackage
     /**
      * Create a new instance of a package.
      *
-     * @param  \stdClass  $service
+     * @param \stdClass $service
      */
     public function __construct(\stdClass $service)
     {
@@ -53,7 +53,7 @@ abstract class AbstractPackage
     protected function convert()
     {
         foreach ($this->conversions as $attribute => $property) {
-            if (! $this->hasOriginal($property)) {
+            if (!$this->hasOriginal($property)) {
                 continue;
             }
 
@@ -64,8 +64,9 @@ abstract class AbstractPackage
     /**
      * Cast the attribute before set it to the $attributes array.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param string $attribute
+     * @param mixed  $value
+     *
      * @return void
      */
     protected function setAttribute($attribute, $value)
@@ -80,7 +81,8 @@ abstract class AbstractPackage
     /**
      * Get a converted attribute from the $attributes array.
      *
-     * @param  string  $attribute
+     * @param string $attribute
+     *
      * @return mixed
      */
     protected function getAttribute($attribute)
@@ -91,7 +93,8 @@ abstract class AbstractPackage
     /**
      * Get a property of the original object.
      *
-     * @param  string  $property
+     * @param string $property
+     *
      * @return \stdClass
      */
     public function getOriginal($property)
@@ -104,7 +107,8 @@ abstract class AbstractPackage
     /**
      * Check if the orginal object has the given property.
      *
-     * @param  string  $property
+     * @param string $property
+     *
      * @return bool
      */
     protected function hasOriginal($property)
@@ -115,7 +119,8 @@ abstract class AbstractPackage
     /**
      * Get a the conversion for the given attribute.
      *
-     * @param  string  $attribute
+     * @param string $attribute
+     *
      * @return mixed
      */
     protected function getConversion($attribute)
@@ -128,17 +133,20 @@ abstract class AbstractPackage
     /**
      * Check if the given attribute has a conversion.
      *
-     * @param  string  $attribute
+     * @param string $attribute
+     *
      * @return bool
      */
     protected function hasConversion($attribute)
     {
         return array_key_exists($attribute, $this->conversions);
     }
+
     /**
      * Get the type of cast for an attribute.
      *
      * @param  $attribute
+     *
      * @return string
      */
     protected function getCast($attribute)
@@ -151,7 +159,8 @@ abstract class AbstractPackage
     /**
      * Check if the given attribute should be cast to a native type.
      *
-     * @param  string  $attribute
+     * @param string $attribute
+     *
      * @return bool
      */
     protected function hasCast($attribute)
@@ -162,8 +171,9 @@ abstract class AbstractPackage
     /**
      * Cast an attribute to a php native type.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param string $attribute
+     * @param mixed  $value
+     *
      * @return mixed
      */
     protected function castAttribute($attribute, $value)
@@ -207,7 +217,8 @@ abstract class AbstractPackage
     /**
      * Retrieve the converted attributes on the package.
      *
-     * @param  string  $attribute
+     * @param string $attribute
+     *
      * @return mixed
      */
     public function __get($attribute)
@@ -218,8 +229,9 @@ abstract class AbstractPackage
     /**
      * Set attributes on the package.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param string $attribute
+     * @param mixed  $value
+     *
      * @return void
      */
     public function __set($attribute, $value)

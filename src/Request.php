@@ -6,8 +6,8 @@ use Correios\Response\Service\Deadline;
 use Correios\Response\Service\Price;
 use Correios\Response\Service\PriceDeadline;
 
-class Request {
-
+class Request
+{
     /**
      * The request client.
      *
@@ -38,19 +38,19 @@ class Request {
      * @param string $origin
      * @param string $destination
      * @param string $weight
-     * @param float $length
-     * @param float $height
-     * @param float $width
-     * @param float $diameter
+     * @param float  $length
+     * @param float  $height
+     * @param float  $width
+     * @param float  $diameter
      * @param string $code
-     * @param int $format
+     * @param int    $format
      * @param string $own
-     * @param int $declared
+     * @param int    $declared
      * @param string $advice
+     *
      * @return PriceDeadline
      */
-    public static function complete
-    (
+    public static function complete(
         $origin,
         $destination,
         $weight,
@@ -63,22 +63,21 @@ class Request {
         $own = 'N',
         $declared = 0,
         $advice = 'N'
-    )
-    {
-        $instance = new static;
+    ) {
+        $instance = new static();
 
         $params = [
-            'nCdServico' => $code,
-            'sCepOrigem' => $origin,
-            'sCepDestino' => $destination,
-            'nVlPeso' => $weight,
-            'nCdFormato' => $format,
-            'nVlComprimento' => $length,
-            'nVlAltura' => $height,
-            'nVlLargura' => $width,
-            'nVlDiametro' => $diameter,
-            'sCdMaoPropria' => $own,
-            'nVlValorDeclarado' => $declared,
+            'nCdServico'          => $code,
+            'sCepOrigem'          => $origin,
+            'sCepDestino'         => $destination,
+            'nVlPeso'             => $weight,
+            'nCdFormato'          => $format,
+            'nVlComprimento'      => $length,
+            'nVlAltura'           => $height,
+            'nVlLargura'          => $width,
+            'nVlDiametro'         => $diameter,
+            'sCdMaoPropria'       => $own,
+            'nVlValorDeclarado'   => $declared,
             'sCdAvisoRecebimento' => $advice,
         ];
 
@@ -93,19 +92,19 @@ class Request {
      * @param string $origin
      * @param string $destination
      * @param string $weight
-     * @param float $length
-     * @param float $height
-     * @param float $width
-     * @param float $diameter
+     * @param float  $length
+     * @param float  $height
+     * @param float  $width
+     * @param float  $diameter
      * @param string $code
-     * @param int $format
+     * @param int    $format
      * @param string $own
-     * @param int $declared
+     * @param int    $declared
      * @param string $advice
+     *
      * @return Price
      */
-    public static function price
-    (
+    public static function price(
         $origin,
         $destination,
         $weight,
@@ -118,22 +117,21 @@ class Request {
         $own = 'N',
         $declared = 0,
         $advice = 'N'
-    )
-    {
-        $instance = new static;
+    ) {
+        $instance = new static();
 
         $params = [
-            'nCdServico' => $code,
-            'sCepOrigem' => $origin,
-            'sCepDestino' => $destination,
-            'nVlPeso' => $weight,
-            'nCdFormato' => $format,
-            'nVlComprimento' => $length,
-            'nVlAltura' => $height,
-            'nVlLargura' => $width,
-            'nVlDiametro' => $diameter,
-            'sCdMaoPropria' => $own,
-            'nVlValorDeclarado' => $declared,
+            'nCdServico'          => $code,
+            'sCepOrigem'          => $origin,
+            'sCepDestino'         => $destination,
+            'nVlPeso'             => $weight,
+            'nCdFormato'          => $format,
+            'nVlComprimento'      => $length,
+            'nVlAltura'           => $height,
+            'nVlLargura'          => $width,
+            'nVlDiametro'         => $diameter,
+            'sCdMaoPropria'       => $own,
+            'nVlValorDeclarado'   => $declared,
             'sCdAvisoRecebimento' => $advice,
         ];
 
@@ -148,15 +146,16 @@ class Request {
      * @param $origin
      * @param $destination
      * @param string $code
+     *
      * @return Deadline
      */
     public static function deadline($origin, $destination, $code = '40010')
     {
-        $instance = new static;
+        $instance = new static();
 
         $params = [
-            'nCdServico' => $code,
-            'sCepOrigem' => $origin,
+            'nCdServico'  => $code,
+            'sCepOrigem'  => $origin,
             'sCepDestino' => $destination,
         ];
 

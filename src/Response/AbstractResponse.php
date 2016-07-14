@@ -46,7 +46,7 @@ abstract class AbstractResponse implements ResponseInterface
      *
      * @return array
      */
-    public final function getPackages()
+    final public function getPackages()
     {
         $services = $this->getServices();
 
