@@ -2,7 +2,15 @@
     "name": "rhberro/correio-services",
     "type": "library",
     "description": "Check how much will cost to deliver your package using the Correio's service.",
-    "keywords": ["laravel", "correio", "correios", "webservice"],
+    "keywords": [
+        "php",
+        "price",
+        "package",
+        "correio",
+        "correios",
+        "service",
+        "webservice"
+    ],
     "homepage": "https://github.com/rhberro/correio-services",
     "license": "MIT",
     "authors": [
@@ -11,7 +19,9 @@
             "email": "rhberro@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.0"
+    },
     "require-dev": {
         "phpunit/phpunit": "^5.4"
     },
