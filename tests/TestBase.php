@@ -25,7 +25,7 @@ class TestBase extends Correios\Testing\TestBase
     /**
      * Example of a simple deadline call.
      *
-     * @return  \Correios\Response\Service\Deadline
+     * @return \Correios\Response\Service\Deadline
      */
     protected function callSimpleDeadline()
     {
