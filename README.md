@@ -24,7 +24,7 @@ composer require rhberro\correio-packages
 ### Price and Deadline
 
 ```php
-$request = Rhberro\Correios\Request::complete('13450044', '13466070', '1.2', '16', '21.8', '15.0', '15.0', '40010');
+$request = Rhberro\Correios\Request::deadlinePrice('13450044', '13466070', '1.2', '16', '21.8', '15.0', '15.0', '40010');
 ```
 
 ### Price
