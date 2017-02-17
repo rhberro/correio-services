@@ -1,4 +1,4 @@
-# Correio Packages
+# Correio Services
 
 Use this package to check how much will cost to deliver your package using the Correio's service.
 
