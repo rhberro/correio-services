@@ -2,12 +2,13 @@
 
 namespace Correios;
 
-use Correios\Response\Service\Deadline;
-use Correios\Response\Service\Price;
-use Correios\Response\Service\PriceDeadline;
+use Correios\Response\ {
+    Deadline,
+    DeadlinePrice,
+    Price
+};
 
-class Request {
-
+class Request implements RequestInterface {
     /**
      * The request client.
      *
@@ -33,23 +34,27 @@ class Request {
     }
 
     /**
-     * Calculate the cost in reais (R$) and the time in days to delivery a package.
-     *
-     * @param string $origin
-     * @param string $destination
-     * @param string $weight
-     * @param float $length
-     * @param float $height
-     * @param float $width
-     * @param float $diameter
-     * @param string $code
-     * @param int $format
-     * @param string $own
-     * @param int $declared
-     * @param string $advice
-     * @return PriceDeadline
+     * {@inheritdoc}
      */
-    public static function complete
+    public static function deadline($origin, $destination, $code = '40010'): Deadline
+    {
+        $instance = new static;
+
+        $params = [
+            'nCdServico' => $code,
+            'sCepOrigem' => $origin,
+            'sCepDestino' => $destination,
+        ];
+
+        $results = $instance->client->CalcPrazo($params);
+
+        return new Deadline($results);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function deadlinePrice
     (
         $origin,
         $destination,
@@ -63,7 +68,7 @@ class Request {
         $own = 'N',
         $declared = 0,
         $advice = 'N'
-    )
+    ): DeadlinePrice
     {
         $instance = new static;
 
@@ -84,25 +89,11 @@ class Request {
 
         $results = $instance->client->CalcPrecoPrazo($params);
 
-        return new PriceDeadline($results);
+        return new DeadlinePrice($results);
     }
 
     /**
-     * Calculate the cost, in reais (R$) to delivery a package.
-     *
-     * @param string $origin
-     * @param string $destination
-     * @param string $weight
-     * @param float $length
-     * @param float $height
-     * @param float $width
-     * @param float $diameter
-     * @param string $code
-     * @param int $format
-     * @param string $own
-     * @param int $declared
-     * @param string $advice
-     * @return Price
+     * {@inheritdoc}
      */
     public static function price
     (
@@ -118,7 +109,7 @@ class Request {
         $own = 'N',
         $declared = 0,
         $advice = 'N'
-    )
+    ): Price
     {
         $instance = new static;
 
@@ -140,28 +131,5 @@ class Request {
         $results = $instance->client->CalcPreco($params);
 
         return new Price($results);
-    }
-
-    /**
-     * Calculate the time, in days to delivery a package.
-     *
-     * @param $origin
-     * @param $destination
-     * @param string $code
-     * @return Deadline
-     */
-    public static function deadline($origin, $destination, $code = '40010')
-    {
-        $instance = new static;
-
-        $params = [
-            'nCdServico' => $code,
-            'sCepOrigem' => $origin,
-            'sCepDestino' => $destination,
-        ];
-
-        $results = $instance->client->CalcPrazo($params);
-
-        return new Deadline($results);
     }
 }
