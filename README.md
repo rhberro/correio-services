@@ -16,7 +16,7 @@ Use this package to check how much will cost to deliver your package using the C
 Install it using composer
 
 ```
-composer require rhberro\correio-packages
+composer require rhberro\correio-services
 ```
 
 ## Getting Started
@@ -24,19 +24,19 @@ composer require rhberro\correio-packages
 ### Price and Deadline
 
 ```php
-$request = Rhberro\Correios\Request::deadlinePrice('13450044', '13466070', '1.2', '16', '21.8', '15.0', '15.0', '40010');
+$response = Rhberro\Correios\Request::deadlinePrice('13450044', '13466070', '1.2', '16', '21.8', '15.0', '15.0', '40010');
 ```
 
 ### Price
 
 ```php
-$request = Rhberro\Correios\Request::price('13450044', '13466070', '1.2', '16', '21.8', '15.0', '15.0', '40010');
+$response = Rhberro\Correios\Request::price('13450044', '13466070', '1.2', '16', '21.8', '15.0', '15.0', '40010');
 ```
 
 ### Deadline
 
 ```php
-$request = Rhberro\Correios\Request::deadline('13450044', '13466070', '40010');
+$response = Rhberro\Correios\Request::deadline('13450044', '13466070', '40010');
 ```
 
 ### Response
