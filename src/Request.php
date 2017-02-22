@@ -8,7 +8,8 @@ use Correios\Response\ {
     Price
 };
 
-class Request implements RequestInterface {
+class Request implements RequestInterface
+{
     /**
      * The request client.
      *
