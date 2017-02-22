@@ -1,5 +1,7 @@
 # Correio Services
 
+[![Build Status](https://travis-ci.org/rhberro/correio-services.svg?branch=master)](https://travis-ci.org/rhberro/correio-services)
+
 Use this package to check how much will cost to deliver your package using the Correio's service.
 
 ---
