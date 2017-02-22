@@ -38,11 +38,15 @@ class ServiceTest extends TestBase
         $this->assertInstanceOf(Service::class, $service);
     }
 
-    public function testShouldHaveAttributesProperty()
+    /**
+     * @expectedException Correios\Exception\AssignmentException
+     */
+    public function testCannotSetAttributes()
     {
         $service = new Service($this->parameter);
 
-        $this->assertObjectHasAttribute('attributes', $service);
+        $service->a = 'b';
+        $service->b = 'a';
     }
 
     public function testShouldRetrieveAttributes()
