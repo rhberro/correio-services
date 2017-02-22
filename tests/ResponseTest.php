@@ -1,35 +1,75 @@
 <?php
 
-use Correios\Response\Service\Deadline;
-use Correios\Response\Service\Price;
-use Correios\Response\Service\PriceDeadline;
+use Correios\Response;
 
 class ResponseTest extends TestBase
 {
-    public function testSuccessPriceDeadlineResponse()
-    {
-        $result = $this->callSimplePriceDeadline();
-        $this->assertInstanceOf(PriceDeadline::class, $result);
+    /**
+     * The default parameter.
+     *
+     * @var array
+     */
+    private $parameter;
 
-        $type = $result->getType();
-        $this->assertEquals($type, 'PriceDeadlineResponse');
+    public function setUp()
+    {
+        parent::setUp();
+
+        $parameter = new \stdClass();
+        $parameter->a = 'a';
+        $parameter->b = 'b';
+        $parameter->c = 'c';
+
+        $this->parameter = array($parameter);
     }
 
-    public function testSuccessPriceResponse()
+    /**
+     * Create a mock for the abstract class.
+     *
+     * @return Response
+     */
+    private function getMockOfResponse(): Response
     {
-        $result = $this->callSimplePrice();
-        $this->assertInstanceOf(Price::class, $result);
-
-        $type = $result->getType();
-        $this->assertEquals($type, 'PriceResponse');
+        return $this->getMockForAbstractClass(Response::class, $this->parameter);
     }
 
-    public function testSuccessDeadlineResponse()
+    /**
+     * @expectedException Error
+     */
+    public function testCannotInstantiateResponse()
     {
-        $result = $this->callSimpleDeadline();
-        $this->assertInstanceOf(Deadline::class, $result);
+        $response = new Response();
+    }
 
-        $type = $result->getType();
-        $this->assertEquals($type, 'DeadlineResponse');
+    /**
+     * @expectedException TypeError
+     */
+    public function testCannotInstantiateWithoutParameters()
+    {
+        $this->getMockForAbstractClass(Response::class);
+    }
+
+    public function testCanInstantiateWithParameters()
+    {
+        $response = $this->getMockOfResponse();
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testReturnEmptyArray()
+    {
+        $response = $this->getMockOfResponse();
+
+        $services = $response->getServices();
+
+        $this->assertEquals([], $services);
+        $this->assertCount(0, $services);
+    }
+
+    public function tearDown()
+    {
+        parent::tearDown();
+
+        $this->parameter = null;
     }
 }
