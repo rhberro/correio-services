@@ -48,7 +48,7 @@ class Service
     }
 
     /**
-     * Dynamically set the a attribute.
+     * Dynamically set an attribute.
      *
      * @param string $key
      * @param mixed $value
