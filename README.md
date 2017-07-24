@@ -54,7 +54,7 @@ foreach ($response->getServices() as $service) {
 
 ## Contributing
 
-The contribution guide will be available soon.
+The contribution guide is not available for now.
 
 ## License
 
