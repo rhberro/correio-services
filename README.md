@@ -8,6 +8,9 @@ Use this package to check how much will cost to deliver your package using the C
 
 - [**Installing**](#installing)
 - [**Getting Started**](#getting-started)
+    - [**Price and Deadline**](#price-and-deadline)
+    - [**Price**](#price)
+    - [**Deadline**](#deadline)
 - [**Contributing**](#contributing)
 - [**License**](#license)
 
